@@ -5,7 +5,7 @@ This repository show that the `FEATURE_SECURE_PROCESSING` functionality doesn't 
 - Install via: `mvn clean install`
 
 # How to Run
-- Run via `mvn spring-boot:run`. This runs the server on port `8080`
+- Run via `mvn spring-boot:run`. This runs the server on port `8080`.
 
 # Prove that `secure-processing` does not prevent XXE
 - To show that the `secure-processing` feature does not do anything against `XXE`, we implemented the `POST /xxe-secure-processing-test` route which takes in a parameter called `xmlInput`.
