@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!DOCTYPE book [<!ENTITY xxe SYSTEM 'file:///etc/passwd'>]>
+<book>
+    <title>&xxe;</title>
+</book>

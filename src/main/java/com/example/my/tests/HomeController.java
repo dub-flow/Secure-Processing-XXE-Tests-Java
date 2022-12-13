@@ -21,16 +21,8 @@ public class HomeController {
 		return "Greetings from Spring Boot!";
 	}
 
-	@RequestMapping(method=RequestMethod.POST, value="/xxe-secure-parsing-test")
+	@RequestMapping(method=RequestMethod.POST, value="/xxe-secure-processing-test")
 	public String dbfSecureParsingTest(String inputXml) {
-		/* sample input: XXE
-			<?xml version="1.0"?><!DOCTYPE book [<!ENTITY xxe SYSTEM 'file:///etc/passwd'>]><book><title>&xxe;</title></book>
-		**/
-
-		/* sample input: Normal
-			<?xml version="1.0"?><book><title>Hacker's Handbook</title></book>
-		**/
-
 		if (inputXml == null) {
 			return "Provide an inputXml variable";
 		}
