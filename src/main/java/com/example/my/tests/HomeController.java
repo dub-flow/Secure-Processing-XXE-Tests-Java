@@ -29,7 +29,7 @@ public class HomeController {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
-			// doesn't do anything!!! XXE still works!
+			// doesn't do anything!!! XXE still works! (prevents Billion Laughs though)
 			dbf.setFeature("http://javax.xml.XMLConstants/feature/secure-processing", true);
 
 			/*
@@ -55,9 +55,6 @@ public class HomeController {
 		try {
 			StringWriter sw = new StringWriter();
 			TransformerFactory tf = TransformerFactory.newInstance();
-
-			// doesn't do anything!!! XXE still works!
-			tf.setFeature("http://javax.xml.XMLConstants/feature/secure-processing", true);
 
 			Transformer transformer = tf.newTransformer();
 			transformer.transform(new DOMSource(doc), new StreamResult(sw));
