@@ -1,6 +1,6 @@
 # Secure-Processing  XXE Tests (Java)
 
-This repository show that the `FEATURE_SECURE_PROCESSING` functionality isn't guaranteed to provide protection against `XXE` in Java. It does, however, prevent the `Billion Laugh Attack`.
+This repository show that the `FEATURE_SECURE_PROCESSING` functionality isn't guaranteed to provide protection against `XXE` in Java. It does, however, prevent the `Billion Laughs Attack`.
 
 For our PoC, we use `DocumentBuilderFactory` and configure it with `setFeature("http://javax.xml.XMLConstants/feature/secure-processing", true);`. Still, our `XXE` payload works.
 
